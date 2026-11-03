@@ -1,0 +1,6 @@
+corpus/
+edits/
+sensitive_words.txt
+profiles/spoken.md
+profiles/written.md
+__pycache__/
