@@ -76,6 +76,7 @@ def main():
             cand = {j for g in sorted(sh[i])[:3] for j in buckets[g] if j != i and rows[j].get("session") != r.get("session")}
             sim = sum(1 for j in list(cand)[:200] if len(sh[i] & sh[j]) / max(len(sh[i] | sh[j]), 1) >= 0.8)
             if sim >= 3: sc += 2; fired.append("near_dup")
+        if re.match(r"\s*(你是一[个名位]|You are an?\b|请你扮演|Act as\b)", t): sc += 1.5; fired.append("role_prompt")
         lines = t.splitlines()
         if len(re.findall(r"^#{1,6} ", t, re.M)) >= 2 or len(re.findall(r"<(\w+)[^>]*>.*?</\1>", t, re.S)) >= 2 or \
            (len(lines) >= 5 and sum(bool(re.match(r"\s*([-*]|\d+\.)\s", l)) for l in lines) / len(lines) >= 0.5):

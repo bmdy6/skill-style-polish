@@ -26,12 +26,21 @@ library application support private var folders dev work github gitlab apps app 
 PUBLIC_DOMAINS = ("github.com", "gitlab.com", "google.com", "youtube.com", "x.com", "twitter.com", "openai.com", "anthropic.com",
                   "localhost", "example.com", "npmjs.com", "pypi.org", "wikipedia.org", "bilibili.com", "zhihu.com")
 CJK_STOP = "这那该本我们你们他们开源新大小某各此每其"
-ORG_RE = re.compile(r"([\u4e00-\u9fff]{2,4})(?:公司|集团|科技|项目|团队|组|群)")
-PERSON_RE = re.compile(r"([找跟和问]?)([\u4e00-\u9fff]{1,3})(?:老师|总|哥|姐)")
+ORG_RE = re.compile(r"([\u4e00-\u9fff]{2,4})(?:公司|集团|科技|团队|项目组|工作室)")
+# function chars that never belong inside a proper noun
+FUNC = set("个的了是在这那一做新整每些们我你他她它也就都还要会能把被和与或及等吗呢吧啊嘛之其所以为对从到给让用有没不很太更最再又")
+SURNAME = set("王李张刘陈杨黄赵吴周徐孙马朱胡郭何高林罗郑梁谢宋唐许韩冯邓曹彭曾肖田董袁潘于蒋蔡余杜叶程苏魏吕丁任沈姚卢姜崔钟谭陆汪范金石廖贾夏韦付方白邹孟熊秦邱江尹薛闫段雷侯龙史陶黎贺顾毛郝龚邵万钱严覃武戴莫孔向汤")
+PERSON_RE = re.compile(r"([找跟和问]?)([\u4e00-\u9fff]{1,3})(?:老师|总(?![结是体共之的计算览部线])|哥(?!们)|姐(?!妹))")
 
 def strip_cjk(w):
     while w and w[0] in CJK_STOP: w = w[1:]
-    return w if len(w) >= 2 else ""
+    return w if len(w) >= 2 and not (set(w) & FUNC) else ""
+
+def person(name):
+    # keep the shortest suffix starting with a common surname (王总 -> 王; 跟张三老师 -> 张三)
+    for i, ch in enumerate(name):
+        if ch in SURNAME and not (set(name[i:]) & FUNC): return name[i:]
+    return ""
 
 def main():
     ap = argparse.ArgumentParser()
@@ -41,16 +50,16 @@ def main():
     rows = [json.loads(l) for l in open(a.inp, encoding="utf-8")]
     nsess = max(len({r.get("session") for r in rows}), 1)
     src = collections.defaultdict(collections.Counter)   # term -> {source_kind: best score}
-    kind = {}; df = collections.defaultdict(set); cwd_terms = set()
+    kind = {}; df = collections.defaultdict(set); cwd_terms = set(); anchored = collections.Counter()
     def add(term, k, sc, sess=None):
         term = term.strip(" ./-_")
-        if len(term) < 2 or term.lower() in TECH or term.lower() in COMMON_EN or term.lower() in PATH_SKIP: return
-        src[term][k] = max(src[term][k], sc); kind.setdefault(term, k)
+        if len(term) < 2 or (term.isascii() and len(term) < 3) or term.lower() in TECH or term.lower() in COMMON_EN or term.lower() in PATH_SKIP: return
+        src[term][k] = max(src[term][k], sc); kind.setdefault(term, k); anchored[term] += 1
         if sess is not None: df[term].add(sess)
     for r in rows:
         if r.get("cwd"):
             for seg in re.split(r"[/\\]", r["cwd"])[3:]:   # skip /Users/<name>
-                if seg and seg.lower() not in PATH_SKIP and not seg.startswith("."):
+                if seg and len(seg) >= 4 and seg.lower() not in PATH_SKIP and not seg.startswith("."):
                     add(seg, "cwd", 5, r.get("session")); cwd_terms.add(seg)
     for r in rows:
         t, s = r["text"], r.get("session")
@@ -69,11 +78,18 @@ def main():
             w = strip_cjk(m)
             if w: add(w, "cjk_org", 3, s)
         for pre, name in PERSON_RE.findall(t):
-            if name and name[0] not in CJK_STOP: add(name, "cjk_person", 4 if pre else 3, s)
+            n = person(name)
+            if len(n) >= 2: add(n, "cjk_person", 4 if pre else 3, s)
     # also count df of cwd terms appearing in text
     for r in rows:
         for term in cwd_terms:
             if term in r["text"]: df[term].add(r.get("session"))
+    # generality check: a real name is mostly seen in its anchored context; a common word
+    # (e.g. a 2-char CJK word that happened to precede 团队) appears everywhere else too.
+    nmsg = max(len(rows), 1)
+    def msg_freq(term):
+        p = re.compile((r"(?<![A-Za-z0-9])" + re.escape(term) + r"(?![A-Za-z0-9])") if term.isascii() else re.escape(term), re.I)
+        return sum(1 for r in rows if p.search(r["text"]))
     entries = []
     for term, srcs in src.items():
         vals = sorted(srcs.values(), reverse=True)
@@ -82,7 +98,14 @@ def main():
         score += 2 if d >= 3 else 1 if d >= 2 else 0
         if d / nsess > 0.3 and "cwd" not in srcs: score -= 2
         if score < 3: continue
-        entries.append({"term": term, "kind": kind[term], "sources": sorted(srcs), "df_sessions": d,
+        mf = msg_freq(term)
+        generality = mf / max(anchored[term], 1)
+        if "cwd" not in srcs and mf / nmsg > 0.005 and generality > 5:
+            score -= 3   # used freely far more often than in name-like context -> common word
+        elif "cwd" not in srcs and generality > 20 and len(term) <= 2:
+            score -= 2
+        if score < 3: continue
+        entries.append({"term": term, "kind": kind[term], "sources": sorted(srcs), "df_sessions": d, "msg_freq": mf, "anchored": anchored[term],
                         "score": round(score, 1), "decision": "redact" if score >= 5 else "review",
                         "decided_by": "rule" if score >= 5 else "pending"})
     entries.sort(key=lambda e: -e["score"])

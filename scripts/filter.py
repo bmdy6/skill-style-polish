@@ -47,8 +47,11 @@ def main():
     try: ents.append(getpass.getuser())
     except Exception: pass
     ents = sorted({e for e in ents if len(e) >= 2}, key=len, reverse=True)
-    ent_re = re.compile("|".join(re.escape(e) for e in ents), re.I) if ents else None
-    st = {"in": 0, "kept": 0, "dropped_word": 0, "dropped_secret_heavy": 0, "redactions": 0, "entity_redactions": 0, "entities": len(ents)}
+    def pat(e):  # ASCII terms only match as whole words; CJK terms as substrings
+        return r"(?<![A-Za-z0-9])" + re.escape(e) + r"(?![A-Za-z0-9])" if e.isascii() else re.escape(e)
+    ents = [e for e in ents if not (e.isascii() and len(e) < 3)]
+    ent_re = re.compile("|".join(pat(e) for e in ents), re.I) if ents else None
+    st = {"in": 0, "kept": 0, "dropped_word": 0, "dropped_secret_heavy": 0, "redactions": 0, "entity_redactions": 0, "entities": len(ents), "msgs_with_entity": 0}
     with open(a.inp, encoding="utf-8") as f, open(a.out, "w", encoding="utf-8") as o:
         for line in f:
             r = json.loads(line); st["in"] += 1
@@ -57,7 +60,7 @@ def main():
                 st["dropped_word"] += 1; continue
             t, h = redact(r["text"])
             if ent_re:
-                t, n = ent_re.subn("[ENTITY]", t); st["entity_redactions"] += n
+                t, n = ent_re.subn("[ENTITY]", t); st["entity_redactions"] += n; st["msgs_with_entity"] += bool(n)
             r.pop("cwd", None)
             plain = re.sub(r"\[[A-Z_]+\]", "", t)
             if h and len(plain.strip()) < 0.4 * len(r["text"]):
