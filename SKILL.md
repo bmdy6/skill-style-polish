@@ -5,28 +5,30 @@ description: 读取本地 AI agent 会话（Claude Code、Codex、Cursor、pi �
 
 # Style Polish
 
-所有脚本在本技能目录下运行，语料和档案只留在本地（`corpus/`、`profiles/spoken.md`、`profiles/written.md` 已在 .gitignore）。
+所有脚本在本技能目录下运行。语料、`auto_sensitive.json` 和档案都只留在本地，已在 .gitignore 里排除。
 
-## 1. 采集 collect
+## 1. 一条命令全自动处理（用户无需填写或分类任何东西）
 ```bash
-python3 scripts/collect.py --list                 # 看各工具找到多少会话文件
-python3 scripts/collect.py --out corpus/raw.jsonl # 全部已知适配器
+python3 scripts/run.py
 ```
-- 只取用户角色的文本；跳过工具结果、命令提示、粘贴块、超长粘贴（>1500 字）和代码。
-- **未知工具（fallback）**：自己找会话文件（如 `find ~ -maxdepth 5 \( -name "*.jsonl" -o -name "*.vscdb" -o -name "*.sqlite" \) -newer ~/.bashrc 2>/dev/null | grep -i <tool>`），先看几行结构（只看键，不打印内容），然后：
-  - 能用通用适配器：`python3 scripts/collect.py --adapter generic --path FILE --out corpus/x.jsonl`；
-  - 否则在 `scripts/collect.py` 里仿照 `Pi` 类加一个 Adapter 子类并登记到 `ADAPTERS`。
-- DeepSeek 网页版没有本地存储：让用户在设置里导出数据，再 `--adapter deepseek --path export.json`。
+它依次执行：采集（collect）→ 去噪（denoise：区分人手打的消息和 agent/自动化生成的提示）→ 自动发现敏感实体（detect → `corpus/auto_sensitive.json`）→ 隐私过滤（filter）→ 统计（stats）。终端只输出数量。
 
-## 2. 隐私过滤 filter
-```bash
-cp sensitive_words.example.txt sensitive_words.txt   # 填公司名、项目名、人名等，命中整条丢弃
-python3 scripts/filter.py --in corpus/raw.jsonl --out corpus/clean.jsonl
-```
-脱敏密码、token、密钥、手机号、邮箱、身份证、卡号、IP。之后只用 `clean.jsonl`。向用户汇报时只报数量，不复述消息内容。
+如果输出提示 `entities need agent review`：
+1. 按 `prompts/review_sensitive.md` 自己审阅 `corpus/review_candidates.json`（只有词、类型、计数，没有原文），写出 `corpus/review_decisions.json`。拿不准就 redact。**不要问用户，也不要在回复里复述这些词。**
+2. 运行 `python3 scripts/run.py --reviewed corpus/review_decisions.json`。
+
+没有 LLM 时可用 `--no-llm`：待审的词一律脱敏。
+
+- 认不出的工具：自己找会话文件，只看键名不看内容；能用就 `collect.py --adapter generic --path FILE`，不能用就在 `collect.py` 里仿照 `Pi` 加一个适配器。
+- 向用户汇报时只报各来源保留/丢弃的数量，不复述消息内容。
+
+## 2. 档案只存风格，不存事实
+- 只写统计量和抽象模式（句长、语气词、标点、中英混用比例、口头禅、开头和结尾惯用语）。
+- 举例必须用槽位模板，例如"帮我把 ⟨X⟩ 改成 ⟨Y⟩"，不能出现具体的名字、项目、金额、地点。
+- 写完必须过泄漏闸门：`python3 scripts/check.py --leak-gate profiles/spoken.md`，不通过就改到通过为止。
 
 ## 3. 建档 build profile
-按 `prompts/build_profile.md`，以 `profiles/TEMPLATE.md` 为模板生成 `profiles/spoken.md`（聊天）；用户若提供文章目录，再单独生成 `profiles/written.md`。
+用 `corpus/clean.jsonl` 和 `corpus/stats.json`，按 `prompts/build_profile.md`，以 `profiles/TEMPLATE.md` 为模板生成 `profiles/spoken.md`（聊天）；用户若提供文章目录，再单独生成 `profiles/written.md`。
 
 ## 4. 润色 polish
 按 `prompts/polish.md`。聊天/消息用 spoken，文章用 written。只理顺语句，不改意思。

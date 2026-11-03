@@ -64,7 +64,10 @@ class Adapter:
 class Claude(Adapter):
     name, tested, globs = "claude", True, ["~/.claude/projects/*/*.jsonl"]
     def parse(self, path):
+        last_asst = None
         for d in jsonl(path):
+            if d.get("type") == "assistant":
+                last_asst = d.get("timestamp")
             if d.get("type") != "user" or d.get("isMeta") or d.get("isCompactSummary") or d.get("toolUseResult") is not None:
                 continue
             m = d.get("message") or {}
@@ -74,7 +77,9 @@ class Claude(Adapter):
             if isinstance(c, list) and any(isinstance(b, dict) and b.get("type") in ("tool_result", "pasted_content") for b in c):
                 continue
             for t in texts_from_content(c):
-                yield {"session": d.get("sessionId"), "ts": d.get("timestamp"), "text": t}
+                yield {"session": d.get("sessionId"), "ts": d.get("timestamp"), "text": t,
+                       "cwd": d.get("cwd"), "sub": bool(d.get("isSidechain")), "prev_ts": last_asst,
+                       "auto_entry": d.get("entrypoint") in ("sdk-cli", "sdk-ts", "sdk-py")}
 
 class Codex(Adapter):
     """TESTED (macOS, Codex CLI/App 2026-10). Newer rollouts carry the typed prompt in
@@ -84,31 +89,42 @@ class Codex(Adapter):
     name, tested, globs = "codex", True, ["~/.codex/sessions/**/*.jsonl"]
     def parse(self, path):
         um, ev, ri = [], [], []
-        sid = os.path.basename(path)
+        sid = os.path.basename(path); meta = {}; last_asst = None
         for d in jsonl(path):
             p = d.get("payload") if isinstance(d.get("payload"), dict) else d
             ts = d.get("timestamp")
+            if d.get("type") == "session_meta":
+                meta = {"cwd": p.get("cwd"), "auto_entry": p.get("originator") in ("codex_exec", "codex_sdk_ts"),
+                        "sub": bool(p.get("source") not in (None, "cli", "vscode", "exec") and isinstance(p.get("source"), dict))}
+            if p.get("type") == "message" and p.get("role") == "assistant":
+                last_asst = ts
             if p.get("type") == "item_completed" and (p.get("item") or {}).get("type") == "UserMessage":
                 for t in texts_from_content(p["item"].get("content")):
-                    um.append({"session": sid, "ts": ts, "text": t})
+                    um.append({"session": sid, "ts": ts, "text": t, "prev_ts": last_asst})
             elif d.get("type") == "event_msg" and p.get("type") == "user_message":
-                ev.append({"session": sid, "ts": ts, "text": p.get("message", "")})
+                ev.append({"session": sid, "ts": ts, "text": p.get("message", ""), "prev_ts": last_asst})
             elif p.get("type") == "message" and p.get("role") == "user":
                 for t in texts_from_content(p.get("content")):
-                    ri.append({"session": sid, "ts": ts, "text": t})
-        yield from (um or ev or ri)
+                    ri.append({"session": sid, "ts": ts, "text": t, "prev_ts": last_asst})
+        for r in (um or ev or ri):
+            yield {**meta, **r}
 
 class Pi(Adapter):
     """TESTED (pi coding agent): {"type":"message","message":{"role":"user","content":[{"type":"text"}]}}.
     toolResult / custom_message / compaction entries are skipped."""
     name, tested, globs = "pi", True, ["~/.pi/agent/sessions/**/*.jsonl"]
     def parse(self, path):
+        meta, last_asst = {}, None
         for d in jsonl(path):
+            if d.get("type") == "session":
+                meta = {"cwd": d.get("cwd"), "sub": bool(d.get("parentSession"))}
             if d.get("type") != "message": continue
             m = d.get("message") or {}
+            if m.get("role") == "assistant":
+                last_asst = d.get("timestamp")
             if m.get("role") == "user":
                 for t in texts_from_content(m.get("content")):
-                    yield {"session": os.path.basename(path), "ts": d.get("timestamp"), "text": t}
+                    yield {**meta, "session": os.path.basename(path), "ts": d.get("timestamp"), "text": t, "prev_ts": last_asst}
 
 class DeepSeek(Adapter):
     """TESTED (DeepSeek Harness / ~/.deepseek/sessions/*.json): {"messages":[{"role","content":[blocks]}]}.
@@ -219,7 +235,7 @@ def main():
     ap.add_argument("--path", action="append", help="explicit file(s) for the chosen adapter")
     ap.add_argument("--out", default="corpus/raw.jsonl")
     ap.add_argument("--max-len", type=int, default=MAX_LEN)
-    ap.add_argument("--max-template-repeat", type=int, default=15,
+    ap.add_argument("--max-template-repeat", type=int, default=0,
                     help="drop messages whose first 30 chars repeat more than N times (automated/template prompts)")
     ap.add_argument("--list", action="store_true", help="only list discovered session files per adapter")
     a = ap.parse_args()
@@ -236,8 +252,10 @@ def main():
             for p in paths:
                 for r in ad.parse(p):
                     t = clean(r["text"], a.max_len)
-                    if not t or t in seen: continue
-                    seen.add(t); c += 1
+                    if not t: continue
+                    key = (r.get("session"), t)
+                    if key in seen: continue
+                    seen.add(key); c += 1
                     rows.append({"source": n, **r, "text": t})
             counts[n] = c
     from collections import Counter
@@ -245,7 +263,7 @@ def main():
     dropped = Counter()
     with open(a.out, "w", encoding="utf-8") as out:
         for r in rows:
-            if pref[r["text"][:30]] > a.max_template_repeat:
+            if a.max_template_repeat and pref[r["text"][:30]] > a.max_template_repeat:
                 dropped[r["source"]] += 1; counts[r["source"]] -= 1; continue
             out.write(json.dumps(r, ensure_ascii=False) + "\n")
     if not a.list:

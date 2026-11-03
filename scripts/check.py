@@ -35,7 +35,22 @@ def main():
     ap.add_argument("draft", nargs="?")
     ap.add_argument("--profile")
     ap.add_argument("--stats", help="corpus jsonl to compute baseline stats from")
+    ap.add_argument("--leak-gate", help="profile.md to scan; exits 1 if it contains redacted entities / PII / ENTITY tags")
+    ap.add_argument("--sensitive", default="corpus/auto_sensitive.json")
     a = ap.parse_args()
+    if a.leak_gate:
+        import os, sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from filter import PATTERNS
+        txt = open(a.leak_gate, encoding="utf-8").read(); bad = {}
+        if os.path.exists(a.sensitive):
+            for e in json.load(open(a.sensitive, encoding="utf-8"))["entries"]:
+                if e["decision"] != "keep" and e["term"].lower() in txt.lower(): bad["entity"] = bad.get("entity", 0) + 1
+        for tag, rx in PATTERNS:
+            n = len(rx.findall(txt))
+            if n: bad[tag] = n
+        if "[ENTITY]" in txt: bad["ENTITY_tag"] = txt.count("[ENTITY]")
+        print(json.dumps({"leak_gate": "fail" if bad else "pass", "hits": bad})); raise SystemExit(1 if bad else 0)
     if a.stats:
         text = "\n".join(json.loads(l)["text"] for l in open(a.stats, encoding="utf-8"))
         print(json.dumps(stats(text), ensure_ascii=False, indent=2)); return

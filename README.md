@@ -27,7 +27,6 @@
 | Google Antigravity | `~/.gemini/antigravity*/conversations/*.db` | ❌ 步骤是 protobuf 二进制，暂不支持 |
 | 其他 | 让 agent 自己找文件、补适配器 | fallback |
 
-自动化/模板化提示（前 30 字重复超过 15 次，比如子代理任务模板）会被自动丢弃，可用 `--max-template-repeat` 调整。
 
 ## 安装
 ```bash
@@ -35,22 +34,26 @@ git clone https://github.com/bmdy6/skill-style-polish ~/.claude/skills/style-pol
 ```
 只依赖 Python 3 标准库。
 
-## 使用
+## 使用（全自动）
 ```bash
 cd ~/.claude/skills/style-polish
-python3 scripts/collect.py --out corpus/raw.jsonl
-cp sensitive_words.example.txt sensitive_words.txt   # 填公司名等
-python3 scripts/filter.py
-python3 scripts/check.py --stats corpus/clean.jsonl
+python3 scripts/run.py      # 采集 → 去噪 → 自动识别敏感实体 → 脱敏 → 统计
 ```
-然后对 agent 说："按我的文风建档" / "用我的口吻润色这段"。
+然后对 agent 说："按我的文风建档" / "用我的口吻润色这段"。不需要手填敏感词，也不需要手动分类。
+
+- **自动去噪**：子代理会话、非交互调用（sdk、`codex exec`）直接丢掉；其余消息按模板前缀重复、近似重复、结构化排版、回复太快、打字速度不像人、批量同时开会话、单消息会话、临时目录等信号打分。报告见 `corpus/denoise_report.json`，只有计数。
+- **自动敏感实体**：从工作目录名、@提及、私有域名、GitHub owner、驼峰词、"XX公司/项目/团队/老师"等结构里找候选词，按出现在多少个会话里打分。高分直接脱敏，中间分由 agent 只看词表决定，拿不准就脱敏；通用技术词有白名单。结果写进可审计的 `corpus/auto_sensitive.json`（权限 0600）。
+- **泄漏闸门**：`check.py --leak-gate` 保证档案里没有被脱敏的实体和隐私信息。
+
+设计细节见 [docs/DESIGN.md](docs/DESIGN.md)。
 
 ## 和已有项目的区别
 | | [Hiro-Inagawa/write-like-me](https://github.com/Hiro-Inagawa/write-like-me) | [marcusnelson/write-like-me-claude-skill](https://github.com/marcusnelson/write-like-me-claude-skill) | [Drew Hoover《Teach your agent your voice》](https://drewhoover.com/blog/teach-your-agent-your-voice/) | **本项目** |
 |---|---|---|---|---|
 | 语料来源 | 手动导出的聊天记录 | 用户提供的写作样本 | 用户的修改记录 | **自动读本地多个 agent 会话** |
 | 语言 | 英文 | 英文 | 英文 | **中文优先**（语气词、口头禅、中英混用） |
-| 隐私过滤 | — | — | — | **脱敏 + 敏感词整条丢弃** |
+| 隐私过滤 | — | — | — | **自动识别敏感实体 + 脱敏 + 泄漏闸门** |
+| 区分人手打和自动化提示 | — | — | — | **✅ 自动去噪** |
 | 口语/书面分开 | — | — | — | ✅ |
 | 打分检查 | ✅ | — | — | ✅ |
 | 从修改中学习 | — | — | ✅ | ✅ |
