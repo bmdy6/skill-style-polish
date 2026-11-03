@@ -15,6 +15,7 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--reviewed", help="agent decisions JSON for review-band entities")
 ap.add_argument("--no-llm", action="store_true", help="skip agent review; review band is redacted (fail-closed)")
 ap.add_argument("--include-suspect", action="store_true")
+ap.add_argument("--profile-out", default=os.path.expanduser("~/.style-polish/spoken.md"), help="profile lives outside the repo")
 a = ap.parse_args(); os.makedirs(C, exist_ok=True)
 if not a.reviewed:
     run("collect.py", "--out", f"{C}/raw.jsonl")
@@ -32,4 +33,9 @@ run("filter.py", "--in", f"{C}/human.jsonl", "--out", f"{C}/clean.jsonl", "--sen
 stats = subprocess.run([sys.executable, os.path.join(D, "check.py"), "--stats", f"{C}/clean.jsonl"], capture_output=True, text=True).stdout
 open(f"{C}/stats.json", "w").write(stats)
 if os.path.exists(f"{C}/REVIEW_NEEDED"): os.remove(f"{C}/REVIEW_NEEDED")
-print(f"[run] done -> {C}/clean.jsonl, {C}/stats.json. Next: build profiles per prompts/build_profile.md, then `check.py --leak-gate profiles/spoken.md`.")
+ap2 = a.profile_out
+run("build_profile.py", "--in", f"{C}/clean.jsonl", "--out", ap2, "--sensitive", f"{C}/auto_sensitive.json")
+gate = subprocess.run([sys.executable, os.path.join(D, "check.py"), "--leak-gate", ap2, "--sensitive", f"{C}/auto_sensitive.json"], capture_output=True, text=True)
+print(f"[leak-gate] {gate.stdout.strip()}")
+if gate.returncode: sys.exit("leak gate failed: profile NOT safe; fix and re-run")
+print(f"[run] done -> profile {ap2} (leak gate passed). Agent may refine wording per prompts/build_profile.md; re-run the leak gate after edits.")

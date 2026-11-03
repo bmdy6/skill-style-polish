@@ -45,7 +45,9 @@ def main():
         txt = open(a.leak_gate, encoding="utf-8").read(); bad = {}
         if os.path.exists(a.sensitive):
             for e in json.load(open(a.sensitive, encoding="utf-8"))["entries"]:
-                if e["decision"] != "keep" and e["term"].lower() in txt.lower(): bad["entity"] = bad.get("entity", 0) + 1
+                t = e["term"]
+                rx = (r"(?<![A-Za-z0-9])" + re.escape(t) + r"(?![A-Za-z0-9])") if t.isascii() else re.escape(t)
+                if e["decision"] != "keep" and re.search(rx, txt, re.I): bad["entity"] = bad.get("entity", 0) + 1
         for tag, rx in PATTERNS:
             n = len(rx.findall(txt))
             if n: bad[tag] = n

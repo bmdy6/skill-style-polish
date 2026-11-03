@@ -25,17 +25,17 @@ python3 scripts/run.py
 ## 2. 档案只存风格，不存事实
 - 只写统计量和抽象模式（句长、语气词、标点、中英混用比例、口头禅、开头和结尾惯用语）。
 - 举例必须用槽位模板，例如"帮我把 ⟨X⟩ 改成 ⟨Y⟩"，不能出现具体的名字、项目、金额、地点。
-- 写完必须过泄漏闸门：`python3 scripts/check.py --leak-gate profiles/spoken.md`，不通过就改到通过为止。
+- 写完必须过泄漏闸门：`python3 scripts/check.py --leak-gate ~/.style-polish/spoken.md`，不通过就改到通过为止。
 
 ## 3. 建档 build profile
-用 `corpus/clean.jsonl` 和 `corpus/stats.json`，按 `prompts/build_profile.md`，以 `profiles/TEMPLATE.md` 为模板生成 `profiles/spoken.md`（聊天）；用户若提供文章目录，再单独生成 `profiles/written.md`。
+`run.py` 已自动生成 `~/.style-polish/spoken.md`，只含统计，并已通过泄漏闸门。需要更自然的描述时，可以按 `prompts/build_profile.md` 用 `corpus/clean.jsonl` 补充文字，改完必须重跑 `check.py --leak-gate`。书面语档案：`build_profile.py --in <文章语料> --out ~/.style-polish/written.md --kind written`。档案不要放进仓库。，以 `profiles/TEMPLATE.md` 为模板生成 `~/.style-polish/spoken.md`（聊天）；用户若提供文章目录，再单独生成 `profiles/written.md`。
 
 ## 4. 润色 polish
 按 `prompts/polish.md`。聊天/消息用 spoken，文章用 written。只理顺语句，不改意思。
 
 ## 5. 检查 check
 ```bash
-python3 scripts/check.py draft.txt --profile profiles/spoken.md
+python3 scripts/check.py draft.txt --profile ~/.style-polish/spoken.md
 ```
 低于 80 分按 issues 再改。
 
