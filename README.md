@@ -17,12 +17,17 @@
 ## 支持的工具
 | 工具 | 位置 | 状态 |
 |---|---|---|
-| Claude Code | `~/.claude/projects/*/*.jsonl` | ✅ 已测试 |
-| Codex CLI | `~/.codex/sessions/**/*.jsonl` | ⚠️ 按文档实现，未实测 |
-| Cursor | `…/Cursor/User/globalStorage/state.vscdb` | ⚠️ 未实测 |
-| pi | `~/.pi/agent/sessions/**/*.jsonl` | ⚠️ 未实测 |
-| DeepSeek | 网页导出的 JSON（`--path`） | ⚠️ 未实测 |
-| 其他 | `--adapter generic` 或让 agent 自己找文件、补适配器 | fallback |
+| Claude Code | `~/.claude/projects/*/*.jsonl` | ✅ 已实测（Linux + macOS） |
+| Codex CLI / App | `~/.codex/sessions/**/rollout-*.jsonl`（`item_completed` → `UserMessage`） | ✅ 已实测（macOS） |
+| pi | `~/.pi/agent/sessions/**/*.jsonl` | ✅ 已实测（macOS） |
+| Cursor | `~/.cursor/projects/*/agent-transcripts/`、`workspaceStorage/*/state.vscdb`（aiService.prompts）、`globalStorage/state.vscdb` | ✅ 已实测（macOS；新版对话正文多在云端/加密，本地能取到的不多） |
+| DeepSeek Harness | `~/.deepseek/sessions/*.json` | ✅ 已实测（macOS） |
+| OpenCode | `~/.local/share/opencode/opencode.db` | ✅ 已实测（macOS） |
+| DeepSeek 网页版 / ChatGPT 导出 / Gemini CLI | 导出的 JSON，`--adapter generic --path` | ⚠️ 通用解析，未用真实导出验证 |
+| Google Antigravity | `~/.gemini/antigravity*/conversations/*.db` | ❌ 步骤是 protobuf 二进制，暂不支持 |
+| 其他 | 让 agent 自己找文件、补适配器 | fallback |
+
+自动化/模板化提示（前 30 字重复超过 15 次，比如子代理任务模板）会被自动丢弃，可用 `--max-template-repeat` 调整。
 
 ## 安装
 ```bash

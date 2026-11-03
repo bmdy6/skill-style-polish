@@ -12,7 +12,8 @@ PATTERNS = [
     ("CARD", re.compile(r"\b(?:\d[ -]?){13,19}\b")),
     ("PHONE", re.compile(r"(?<!\d)(?:\+?86[- ]?)?1[3-9]\d{9}(?!\d)|\+\d{1,3}[- ]?\d{3,4}[- ]?\d{3,4}[- ]?\d{3,4}")),
     ("IP", re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b")),
-    ("LONGKEY", re.compile(r"\b(?=[A-Za-z0-9]*\d)(?=[A-Za-z0-9]*[A-Za-z])[A-Za-z0-9_\-!@#$%]{16,}\b")),
+    # high-entropy-looking strings: 20+ chars, upper+lower+digit, no path/word separators
+    ("LONGKEY", re.compile(r"(?<![\w/.-])(?=[A-Za-z0-9+/=_!@#$%]*\d)(?=[A-Za-z0-9+/=_!@#$%]*[a-z])(?=[A-Za-z0-9+/=_!@#$%]*[A-Z])[A-Za-z0-9+/=_!@#$%]{20,}(?![\w/.-])")),
 ]
 
 def load_words(path):
