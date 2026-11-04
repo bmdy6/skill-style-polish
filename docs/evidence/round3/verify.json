@@ -17,7 +17,7 @@
           "stderr": "Cloning into '.agents/skills/style-polish'...\n",
           "exitCode": 0,
           "signal": null,
-          "durationMs": 3610,
+          "durationMs": 4238,
           "timedOut": false,
           "requiresTTY": false,
           "environment": {
@@ -41,7 +41,7 @@
           "stderr": "Cloning into '.agents/skills/style-polish'...\n",
           "exitCode": 0,
           "signal": null,
-          "durationMs": 3421,
+          "durationMs": 4134,
           "timedOut": false,
           "requiresTTY": false,
           "environment": {

@@ -2,7 +2,7 @@
 
 Current F1–F3 results. Round2 evidence is historical.
 
-Unit tests: 54 passed, none failed or skipped. See test-summary.json for this case’s verify, recognition and blind results.
+Unit tests: 55 passed, none failed or skipped. See test-summary.json for this case’s verify, recognition and blind results.
 
 **Recognition did not pass:** the unchanged forWhom keyword rule rejected the original reader response. The other four recognition checks passed. No response, expected keyword or scoring threshold was edited to make this pass. Both cases’ blind readers preferred the new version.
 
