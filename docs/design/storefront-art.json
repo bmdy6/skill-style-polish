@@ -1,0 +1,22 @@
+{
+  "accent": "#2f6f4e",
+  "images": [
+    {
+      "id": "social",
+      "template": "social",
+      "title": {
+        "en": "skill-style-polish",
+        "zh-CN": "skill-style-polish"
+      },
+      "subtitle": {
+        "en": "Let AI polish drafts in your own voice.",
+        "zh-CN": "让 AI 用你自己的口吻润色文字。"
+      },
+      "result": {
+        "en": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+        "zh-CN": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish"
+      },
+      "illustration": true
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "winner": "after",
+  "answers": {
+    "choice": "A",
+    "why": "The before-and-after example immediately shows what I would get and lets me judge the editing style. B emphasizes a privacy check but never demonstrates whether the polishing is useful.",
+    "confusing": [
+      "A’s “Style check 60/100” has no explanation, so I cannot tell whether the result is good."
+    ]
+  },
+  "randomization": {
+    "method": "crypto.randomInt(2)",
+    "draw": 1
+  },
+  "labels": {
+    "A": {
+      "source": "after",
+      "sha256": "e90f29942b0da00ca6c146e11a15ed14627a65e328bcee14e95b670f83b1e35e"
+    },
+    "B": {
+      "source": "before",
+      "sha256": "0e3929e4a84fa27841204ac3ae2e344366d249fa672cedbfaa92e26f9563d55b"
+    }
+  }
+}

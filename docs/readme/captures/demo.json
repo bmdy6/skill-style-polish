@@ -1,0 +1,19 @@
+{
+  "id": "demo",
+  "command": "python3 scripts/check.py --leak-gate examples/spoken.example.md",
+  "stdout": "{\"leak_gate\": \"pass\", \"hits\": {}}\n",
+  "stderr": "",
+  "exitCode": 0,
+  "signal": null,
+  "durationMs": 103,
+  "timedOut": false,
+  "requiresTTY": false,
+  "environment": {
+    "node": "v26.8.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "ci": true,
+    "stdin": "closed",
+    "isolation": "disposable copy; not an OS sandbox"
+  }
+}

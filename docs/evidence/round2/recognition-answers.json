@@ -1,0 +1,16 @@
+{
+  "what": "An AI agent skill called style-polish that rewrites drafts in your own voice.",
+  "forWhom": "People who use coding agents and want help polishing their writing while preserving their personal style.",
+  "firstCommand": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+  "wouldTry": "yes",
+  "why": "The before-and-after example makes the benefit concrete, and installation appears to take one command.",
+  "whatOutput": "A rewritten draft. The example turns a dense Chinese paragraph into shorter, separate lines while keeping the main requests.",
+  "mostAppealing": "The visible before-and-after comparison lets me judge the editing style immediately.",
+  "confusing": [
+    "It does not explain which agents support the skill or where to run the command.",
+    "How it builds a local style profile, and what writing samples it needs, is unclear.",
+    "The example mainly demonstrates formatting and shorter sentences rather than a distinctive personal voice.",
+    "“Style check 60/100” has no explanation: is that a good result, and what does it measure?",
+    "It is unclear whether the output is plain text or includes the comparison cards and score shown."
+  ]
+}

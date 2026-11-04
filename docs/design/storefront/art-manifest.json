@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "accent": "#2f6f4e",
+  "files": [
+    {
+      "file": "social-light.png",
+      "template": "social",
+      "theme": "light",
+      "language": "en",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "9aea2401d631fc8864bf9fa5059a9873fee81e1631f5a177c2fb2e113efdbaa1",
+      "bytes": 35059,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "contentBounds": {
+        "left": 40,
+        "top": 123.671875,
+        "right": 1240,
+        "bottom": 600
+      },
+      "contentRatio": 0.6977462768554688,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": [],
+        "mainText": [],
+        "density": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-dark.png",
+      "template": "social",
+      "theme": "dark",
+      "language": "en",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "919aea00277af1904d6b497b564fa95dabdbdb752a29e8e97fd12ba6c5df6727",
+      "bytes": 35264,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "contentBounds": {
+        "left": 40,
+        "top": 123.671875,
+        "right": 1240,
+        "bottom": 600
+      },
+      "contentRatio": 0.6977462768554688,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": [],
+        "mainText": [],
+        "density": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-light.zh-CN.png",
+      "template": "social",
+      "theme": "light",
+      "language": "zh-CN",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "124f837fa0751d7f3b798a9edd8c5c7722da049d353cbbc0cd0d9a14ca15d7e5",
+      "bytes": 34125,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "contentBounds": {
+        "left": 40,
+        "top": 123.671875,
+        "right": 1240,
+        "bottom": 600
+      },
+      "contentRatio": 0.6977462768554688,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": [],
+        "mainText": [],
+        "density": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-dark.zh-CN.png",
+      "template": "social",
+      "theme": "dark",
+      "language": "zh-CN",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "2f9f9cfc9cccd7585f3dbabe66052895e207c183a5f9bd94e2ef7b50e349d004",
+      "bytes": 34234,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "contentBounds": {
+        "left": 40,
+        "top": 123.671875,
+        "right": 1240,
+        "bottom": 600
+      },
+      "contentRatio": 0.6977462768554688,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": [],
+        "mainText": [],
+        "density": []
+      },
+      "width": 1280,
+      "height": 640
+    }
+  ]
+}

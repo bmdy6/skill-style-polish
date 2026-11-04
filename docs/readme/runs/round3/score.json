@@ -1,0 +1,24 @@
+{
+  "score": 80,
+  "draft_stats": {
+    "avg_sentence_len": 75,
+    "p90_sentence_len": 75,
+    "particles_per_100": 3.08,
+    "english_words_per_100cjk": 1.54,
+    "punct_per_100": {
+      "，": 9.33,
+      "。": 0.0,
+      "！": 0.0,
+      "？": 0.0,
+      "…": 0.0,
+      "~": 0.0,
+      ",": 0.0,
+      "!": 0.0,
+      "?": 0.0
+    },
+    "question_ratio": 0.0
+  },
+  "issues": [
+    "avg_sentence_len: 草稿 75 vs 档案 13.6"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "what": "style-polish is an AI agent skill that rewrites drafts to sound more like you.",
+  "forWhom": "People who use AI coding agents and want help polishing writing without losing their personal voice.",
+  "firstCommand": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+  "wouldTry": "yes",
+  "why": "The before-and-after example makes the benefit concrete: more natural wording while keeping the original intent.",
+  "whatOutput": "A rewritten draft in your voice. The example shows Chinese text becoming more conversational, alongside a voice-match score increasing from 36 to 80.",
+  "mostAppealing": "Building a local style profile from my own writing instead of getting generic AI prose.",
+  "confusing": [
+    "Which agents support this skill, and what prerequisites are needed?",
+    "How is my local style profile built, and what writing samples do I provide?",
+    "Does normal output include the comparison cards and score, or are those only for this README example?",
+    "The voice-match score measures profile mismatch and banned phrases, but it is unclear how reliably that reflects sounding like me."
+  ]
+}

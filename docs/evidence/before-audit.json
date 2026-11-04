@@ -1,0 +1,159 @@
+{
+  "mode": "audit",
+  "checks": [
+    {
+      "id": "V2",
+      "status": "fail",
+      "issues": [
+        "hero is not fully visible on desktop",
+        "install is not fully visible on desktop"
+      ],
+      "screen": {
+        "renderer": "github-api",
+        "readme": "README.md",
+        "viewports": {
+          "desktop": {
+            "width": 1280,
+            "height": 800,
+            "items": {
+              "name": {
+                "top": 96,
+                "bottom": 146.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "oneLiner": {
+                "top": 162.59375,
+                "bottom": 186.59375,
+                "left": 241,
+                "right": 1043
+              },
+              "hero": null,
+              "install": {
+                "top": 1320.15625,
+                "bottom": 1450.671875,
+                "left": 221,
+                "right": 1059
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": false,
+              "install": false
+            },
+            "install": "# Claude Code\ngit clone https://github.com/bmdy6/skill-style-polish ~/.claude/skills/style-polish\n# Codex / 其他支持 skills 的 agent（任选）\ngit clone https://github.com/bmdy6/skill-style-polish ~/.codex/skills/style-polish\ngit clone https://github.com/bmdy6/skill-style-polish ~/.agents/skills/style-polish",
+            "contentWidth": 838,
+            "fold": 728,
+            "screenshot": "first-screen-desktop.png",
+            "pass": false
+          },
+          "desktop-dark": {
+            "width": 1280,
+            "height": 800,
+            "items": {
+              "name": {
+                "top": 96,
+                "bottom": 146.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "oneLiner": {
+                "top": 162.59375,
+                "bottom": 186.59375,
+                "left": 241,
+                "right": 1043
+              },
+              "hero": null,
+              "install": {
+                "top": 1320.15625,
+                "bottom": 1450.671875,
+                "left": 221,
+                "right": 1059
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": false,
+              "install": false
+            },
+            "install": "# Claude Code\ngit clone https://github.com/bmdy6/skill-style-polish ~/.claude/skills/style-polish\n# Codex / 其他支持 skills 的 agent（任选）\ngit clone https://github.com/bmdy6/skill-style-polish ~/.codex/skills/style-polish\ngit clone https://github.com/bmdy6/skill-style-polish ~/.agents/skills/style-polish",
+            "contentWidth": 838,
+            "fold": 728,
+            "screenshot": "first-screen-desktop-dark.png",
+            "pass": false
+          },
+          "mobile": {
+            "width": 390,
+            "height": 844,
+            "items": {
+              "name": {
+                "top": 88,
+                "bottom": 138.59375,
+                "left": 16,
+                "right": 374
+              },
+              "oneLiner": {
+                "top": 154.59375,
+                "bottom": 202.59375,
+                "left": 36,
+                "right": 358
+              },
+              "hero": null,
+              "install": {
+                "top": 1984.15625,
+                "bottom": 2232.890625,
+                "left": 16,
+                "right": 374
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": false,
+              "install": false
+            },
+            "install": "# Claude Code\ngit clone https://github.com/bmdy6/skill-style-polish ~/.claude/skills/style-polish\n# Codex / 其他支持 skills 的 agent（任选）\ngit clone https://github.com/bmdy6/skill-style-polish ~/.codex/skills/style-polish\ngit clone https://github.com/bmdy6/skill-style-polish ~/.agents/skills/style-polish",
+            "contentWidth": 358,
+            "fold": 772,
+            "screenshot": "first-screen-mobile.png",
+            "pass": false
+          }
+        }
+      }
+    },
+    {
+      "id": "V3",
+      "status": "pass",
+      "issues": [],
+      "externalLinks": "not checked; use --online"
+    },
+    {
+      "id": "V4",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V5",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V6",
+      "status": "fail",
+      "issues": [
+        "README.md: One-liner exceeds 20 words",
+        "Paragraph exceeds three sentences"
+      ],
+      "wordCount": 145
+    },
+    {
+      "id": "V7",
+      "status": "skip",
+      "reason": "Chinese README absent",
+      "issues": []
+    }
+  ],
+  "score": 60
+}

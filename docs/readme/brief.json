@@ -1,0 +1,64 @@
+{
+  "projectType": "agent-skill",
+  "audience": "Chinese writers",
+  "oneLiner": {
+    "en": "Let AI polish drafts in your own voice.",
+    "zh-CN": "让 AI 用你自己的口吻润色文字。"
+  },
+  "keyTerms": [
+    "style",
+    "writer",
+    "chinese"
+  ],
+  "install": {
+    "command": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish"
+  },
+  "firstUse": "Build my local style profile, then polish this draft in my voice.",
+  "languages": [
+    "en",
+    "zh-CN"
+  ],
+  "accent": "#2f6f4e",
+  "wordBudget": 400,
+  "allowNamedAlternatives": false,
+  "decidedBy": "agent",
+  "gates": {
+    "G1": {
+      "decidedBy": "agent",
+      "originalTagline": "让 AI 用你自己的口吻润色文字：从你电脑上所有 AI agent 的聊天记录里学你怎么说话。",
+      "candidates": [
+        "让 AI 用你自己的口吻润色文字。",
+        "把草稿改顺，留下你自己的口吻。",
+        "从本地文风档案出发，润色你的中文草稿。"
+      ],
+      "adaptedFromOld": "让 AI 用你自己的口吻润色文字。",
+      "choice": "让 AI 用你自己的口吻润色文字。",
+      "reason": "Round 2 requires the project outcome and concrete output, with the useful original tagline preserved as a candidate."
+    },
+    "G2": {
+      "decidedBy": "agent",
+      "choice": "Approved after round 3 score-caption and first-screen inspection",
+      "reason": "Round 3: inspect the actual score comparison, calculation caption and light/dark first screens before delivery."
+    }
+  },
+  "coreAction": {
+    "what": "Polish a Chinese draft using the bundled style profile",
+    "input": "Original Chinese page-editing request in inputs/draft.txt",
+    "agentStep": "Follow prompts/polish.md using examples/spoken.example.md, including its one low-score refinement.",
+    "output": {
+      "description": "A polished Chinese draft that preserves the original meaning",
+      "keywords": [
+        "draft",
+        "text",
+        "rewrite",
+        "polished",
+        "润色",
+        "草稿",
+        "文字"
+      ]
+    },
+    "factIds": [
+      "core-polish-step"
+    ]
+  }
+}

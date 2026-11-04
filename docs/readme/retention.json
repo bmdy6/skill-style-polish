@@ -1,0 +1,8 @@
+{
+  "intentionalDeletions": [
+    {
+      "id": "heading:README.md:和已有项目的区别",
+      "reason": "Remove unverified named competitor comparisons; retain usage, privacy and all compatibility details in the linked compatibility document."
+    }
+  ]
+}
