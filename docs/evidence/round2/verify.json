@@ -1,0 +1,393 @@
+{
+  "mode": "verify",
+  "ok": true,
+  "checks": [
+    {
+      "id": "V1",
+      "status": "pass",
+      "issues": [],
+      "results": [
+        {
+          "index": 0,
+          "code": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+          "language": "sh",
+          "file": "README.md",
+          "command": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+          "stdout": "",
+          "stderr": "Cloning into '.agents/skills/style-polish'...\n",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 3011,
+          "timedOut": false,
+          "requiresTTY": false,
+          "environment": {
+            "node": "v26.8.1",
+            "platform": "darwin",
+            "arch": "arm64",
+            "ci": true,
+            "sharedGitHubAuth": true,
+            "stdin": "closed",
+            "isolation": "disposable copy; not an OS sandbox"
+          },
+          "status": "pass"
+        },
+        {
+          "index": 0,
+          "code": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+          "language": "sh",
+          "file": "README.zh-CN.md",
+          "command": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+          "stdout": "",
+          "stderr": "Cloning into '.agents/skills/style-polish'...\n",
+          "exitCode": 0,
+          "signal": null,
+          "durationMs": 3258,
+          "timedOut": false,
+          "requiresTTY": false,
+          "environment": {
+            "node": "v26.8.1",
+            "platform": "darwin",
+            "arch": "arm64",
+            "ci": true,
+            "sharedGitHubAuth": true,
+            "stdin": "closed",
+            "isolation": "disposable copy; not an OS sandbox"
+          },
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "id": "V2",
+      "status": "pass",
+      "issues": [],
+      "screen": {
+        "renderer": "github-api",
+        "readme": "README.md",
+        "viewports": {
+          "desktop": {
+            "width": 1280,
+            "height": 800,
+            "items": {
+              "name": {
+                "top": 96,
+                "bottom": 146.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "oneLiner": {
+                "top": 162.59375,
+                "bottom": 186.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "hero": {
+                "top": 242.59375,
+                "bottom": 556.375,
+                "left": 221,
+                "right": 1059
+              },
+              "install": {
+                "top": 664.5625,
+                "bottom": 716.265625,
+                "left": 221,
+                "right": 1059
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": true,
+              "install": true
+            },
+            "install": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+            "contentWidth": 838,
+            "fold": 728,
+            "screenshot": "first-screen-desktop.png",
+            "pass": true
+          },
+          "desktop-dark": {
+            "width": 1280,
+            "height": 800,
+            "items": {
+              "name": {
+                "top": 96,
+                "bottom": 146.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "oneLiner": {
+                "top": 162.59375,
+                "bottom": 186.59375,
+                "left": 221,
+                "right": 1059
+              },
+              "hero": {
+                "top": 242.59375,
+                "bottom": 556.375,
+                "left": 221,
+                "right": 1059
+              },
+              "install": {
+                "top": 664.5625,
+                "bottom": 716.265625,
+                "left": 221,
+                "right": 1059
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": true,
+              "install": true
+            },
+            "install": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+            "contentWidth": 838,
+            "fold": 728,
+            "screenshot": "first-screen-desktop-dark.png",
+            "pass": true
+          },
+          "mobile": {
+            "width": 390,
+            "height": 844,
+            "items": {
+              "name": {
+                "top": 88,
+                "bottom": 138.59375,
+                "left": 16,
+                "right": 374
+              },
+              "oneLiner": {
+                "top": 154.59375,
+                "bottom": 178.59375,
+                "left": 16,
+                "right": 374
+              },
+              "hero": {
+                "top": 234.59375,
+                "bottom": 368.640625,
+                "left": 16,
+                "right": 374
+              },
+              "install": {
+                "top": 500.828125,
+                "bottom": 572.234375,
+                "left": 16,
+                "right": 374
+              }
+            },
+            "checks": {
+              "name": true,
+              "oneLiner": true,
+              "hero": true,
+              "install": true
+            },
+            "install": "gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish",
+            "contentWidth": 358,
+            "fold": 772,
+            "screenshot": "first-screen-mobile.png",
+            "pass": true
+          }
+        }
+      }
+    },
+    {
+      "id": "V3",
+      "status": "pass",
+      "issues": [],
+      "externalLinks": "not checked; use --online"
+    },
+    {
+      "id": "V4",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V5",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V6",
+      "status": "pass",
+      "issues": [],
+      "wordCount": 264
+    },
+    {
+      "id": "V7",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V8",
+      "status": "skip",
+      "reason": "No test command discovered",
+      "issues": []
+    },
+    {
+      "id": "V9",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V10",
+      "status": "pass",
+      "issues": []
+    },
+    {
+      "id": "V11",
+      "status": "pass",
+      "issues": [],
+      "preserved": [
+        {
+          "id": "heading:README.md:Quick start",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:What you get",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:How it works",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:Options",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:FAQ and boundaries",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:Contributing",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:License",
+          "in": "README.md"
+        },
+        {
+          "id": "heading:README.md:它做什么",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "heading:README.md:支持的工具",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "heading:README.md:安装",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "heading:README.md:使用（一条命令，全自动）",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "heading:README.md:隐私",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-python",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-gh",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-claude-code",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-codex",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-cursor",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-pi",
+          "in": "README.md"
+        },
+        {
+          "id": "integration-en-deepseek-harness",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-opencode",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-gemini-cli",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-chatgpt",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-google-antigravity",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-jsonl",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "integration-en-json",
+          "in": "docs/compatibility.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:快速开始",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:你会得到什么",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:如何工作",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:选项",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:常见问题和边界",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:参与贡献",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "heading:README.zh-CN.md:许可证",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "integration-zh-python",
+          "in": "README.zh-CN.md"
+        },
+        {
+          "id": "integration-zh-gh",
+          "in": "README.zh-CN.md"
+        }
+      ],
+      "intentionalDeletions": [
+        {
+          "id": "heading:README.md:和已有项目的区别",
+          "reason": "Remove unverified named competitor comparisons; retain usage, privacy and all compatibility details in the linked compatibility document."
+        }
+      ]
+    }
+  ],
+  "score": 100,
+  "summary": {
+    "pass": 10,
+    "fail": 0,
+    "skip": 1
+  }
+}
