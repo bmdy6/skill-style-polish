@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "accent": "#2f6f4e",
+  "files": [
+    {
+      "file": "social-light.png",
+      "template": "social",
+      "theme": "light",
+      "language": "en",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "c3c23f3b2e1d54a163a64251e211ed8980bfcdc79fc2e193ba7a8492fb9eeb48",
+      "bytes": 35158,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-dark.png",
+      "template": "social",
+      "theme": "dark",
+      "language": "en",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "d6a5485a926067baf9aba661e3a83426c4eff5d97c043b95bf617853a6570411",
+      "bytes": 35609,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-light.zh-CN.png",
+      "template": "social",
+      "theme": "light",
+      "language": "zh-CN",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "45b737c227f8369f35d5d9bfc359a526bcfdc7f86b9f2ca335ec8653c4e154e9",
+      "bytes": 37544,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": []
+      },
+      "width": 1280,
+      "height": 640
+    },
+    {
+      "file": "social-dark.zh-CN.png",
+      "template": "social",
+      "theme": "dark",
+      "language": "zh-CN",
+      "kind": "illustration",
+      "captureId": null,
+      "sha256": "59c698356cd2d28a8d4371402cb020a3c71a4f307136306a321c47fca4d70190",
+      "bytes": 37956,
+      "cssWidth": 1280,
+      "cssHeight": 640,
+      "checks": {
+        "overflow": "pass",
+        "fontSize": "pass",
+        "contrast": "pass",
+        "fields": "pass",
+        "size": "pass"
+      },
+      "problems": {
+        "overflow": [],
+        "fontSize": [],
+        "contrast": [],
+        "fields": []
+      },
+      "width": 1280,
+      "height": 640
+    }
+  ]
+}
