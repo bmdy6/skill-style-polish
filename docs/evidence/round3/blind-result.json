@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "winner": "after",
+  "answers": {
+    "choice": "B",
+    "why": "The rewrite feels more conversational, and the before-and-after voice score makes the benefit easier to grasp.",
+    "confusing": [
+      "I can’t tell how reliably the voice-match score reflects someone’s actual writing style."
+    ]
+  },
+  "randomization": {
+    "method": "crypto.randomInt(2)",
+    "draw": 0
+  },
+  "labels": {
+    "A": {
+      "source": "before",
+      "sha256": "e90f29942b0da00ca6c146e11a15ed14627a65e328bcee14e95b670f83b1e35e"
+    },
+    "B": {
+      "source": "after",
+      "sha256": "b56d0ee019bf035b455094643a4ef163d230c344a871f0fca6ca431bcb35e675"
+    }
+  }
+}
