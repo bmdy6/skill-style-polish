@@ -1,0 +1,64 @@
+{
+  "accent": "#2f6f4e",
+  "images": [
+    {
+      "id": "hero",
+      "template": "hero-prompt",
+      "title": {
+        "en": "A profile you can check",
+        "zh-CN": "可检查的本地文风档案"
+      },
+      "subtitle": {
+        "en": "An actual leak check on the included synthetic profile.",
+        "zh-CN": "对仓库自带的合成示例档案，运行真实泄漏检查。"
+      },
+      "prompt": {
+        "en": "Help me write in my own voice, with a local style profile.",
+        "zh-CN": "用本地文风档案，帮我按自己的口吻写作。"
+      },
+      "captureId": "demo",
+      "fixture": true
+    },
+    {
+      "id": "workflow",
+      "template": "strip-3",
+      "title": {
+        "en": "How it works",
+        "zh-CN": "工作流程"
+      },
+      "subtitle": {
+        "en": "Help Chinese writers polish drafts in their own voice using a local style profile.",
+        "zh-CN": "用本地文风档案，帮助中文写作者按自己的口吻润色。"
+      },
+      "illustration": true,
+      "steps": [
+        {
+          "en": "Build a profile",
+          "zh-CN": "建立档案"
+        },
+        {
+          "en": "Polish a draft",
+          "zh-CN": "润色文字"
+        },
+        {
+          "en": "Check and learn",
+          "zh-CN": "检查并学习"
+        }
+      ],
+      "details": [
+        {
+          "en": "Use your own local messages.",
+          "zh-CN": "从本人本地消息中提取文风。"
+        },
+        {
+          "en": "Keep the meaning and your voice.",
+          "zh-CN": "保留原意和自己的口吻。"
+        },
+        {
+          "en": "Score drafts and learn from edits.",
+          "zh-CN": "检查草稿，从修改中学习。"
+        }
+      ]
+    }
+  ]
+}

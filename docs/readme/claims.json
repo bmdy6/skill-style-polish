@@ -1,0 +1,56 @@
+[
+  {
+    "claim": "Entities marked for review or redaction are filtered before profiling.",
+    "factIds": [
+      "privacy-filter"
+    ]
+  },
+  {
+    "claim": "Profiles keep statistics and whitelisted language patterns.",
+    "factIds": [
+      "profile-style"
+    ]
+  },
+  {
+    "claim": "Draft checks score differences from the profile.",
+    "factIds": [
+      "draft-scoring"
+    ]
+  },
+  {
+    "claim": "Help Chinese writers polish drafts in their own voice with a local, privacy-filtered agent skill.",
+    "factIds": [
+      "privacy-filter",
+      "profile-style",
+      "draft-scoring",
+      "local-pipeline"
+    ]
+  },
+  {
+    "claim": "建立档案前，先过滤待审或需脱敏的实体。",
+    "factIds": [
+      "privacy-filter"
+    ]
+  },
+  {
+    "claim": "档案保存统计量和白名单语言模式。",
+    "factIds": [
+      "profile-style"
+    ]
+  },
+  {
+    "claim": "草稿检查会对照档案，为差异打分。",
+    "factIds": [
+      "draft-scoring"
+    ]
+  },
+  {
+    "claim": "用本地隐私过滤的智能体技能，帮助中文写作者按自己的口吻润色。",
+    "factIds": [
+      "privacy-filter",
+      "profile-style",
+      "draft-scoring",
+      "local-pipeline"
+    ]
+  }
+]

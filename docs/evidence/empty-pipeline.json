@@ -1,0 +1,20 @@
+{
+  "id": "empty-pipeline",
+  "command": "python3 scripts/run.py --no-llm",
+  "stdout": "[collect.py] {\"files_out\": \"corpus/raw.jsonl\", \"messages_per_source\": {\"claude\": 0, \"codex\": 0, \"pi\": 0, \"cursor\": 0, \"deepseek\": 0, \"opencode\": 0}, \"dropped_as_template\": {}}\n[denoise.py] {\"per_source\": {}}\n[detect.py] {\"candidates\": 0, \"by_kind_decision\": {}}\n[apply_review.py] {}\n[filter.py] {\"in\": 0, \"kept\": 0, \"dropped_word\": 0, \"dropped_secret_heavy\": 0, \"redactions\": 0, \"entity_redactions\": 0, \"entities\": 1, \"msgs_with_entity\": 0}\n[build_profile.py] {\"profile\": \"TEMP_HOME/.style-polish/spoken.md\", \"samples\": 0, \"sections\": [\"可度量统计\", \"用词\", \"句长与节奏\", \"语气词\", \"口头禅\", \"中英混用\", \"标点习惯\", \"结构习惯\", \"不喜欢的说法（几乎从不使用，check.py 会扣分）\", \"从修改中学到的规则\"]}\n[leak-gate] {\"leak_gate\": \"pass\", \"hits\": {}}\n[run] done -> profile TEMP_HOME/.style-polish/spoken.md (leak gate passed). Agent may refine wording per prompts/build_profile.md; re-run the leak gate after edits.\n",
+  "stderr": "",
+  "exitCode": 0,
+  "signal": null,
+  "durationMs": 316,
+  "timedOut": false,
+  "requiresTTY": false,
+  "environment": {
+    "node": "v26.8.1",
+    "platform": "darwin",
+    "arch": "arm64",
+    "ci": true,
+    "sharedGitHubAuth": false,
+    "stdin": "closed",
+    "isolation": "disposable copy; not an OS sandbox"
+  }
+}
