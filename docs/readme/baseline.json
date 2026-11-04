@@ -1,0 +1,160 @@
+{
+  "readmes": [
+    {
+      "file": "README.md",
+      "headings": [
+        "Quick start",
+        "What you get",
+        "How it works",
+        "Options",
+        "FAQ and boundaries",
+        "Contributing",
+        "License",
+        "它做什么",
+        "支持的工具",
+        "安装",
+        "使用（一条命令，全自动）",
+        "和已有项目的区别",
+        "隐私"
+      ]
+    },
+    {
+      "file": "README.zh-CN.md",
+      "headings": [
+        "快速开始",
+        "你会得到什么",
+        "如何工作",
+        "选项",
+        "常见问题和边界",
+        "参与贡献",
+        "许可证"
+      ]
+    }
+  ],
+  "integrations": [
+    {
+      "id": "integration-en-python",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Python",
+      "source": "README.md:31",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-gh",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "gh",
+      "source": "README.md:9",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-zh-python",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Python",
+      "source": "README.zh-CN.md:24",
+      "kind": "integration",
+      "readme": "README.zh-CN.md"
+    },
+    {
+      "id": "integration-zh-gh",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "gh",
+      "source": "README.zh-CN.md:9",
+      "kind": "integration",
+      "readme": "README.zh-CN.md"
+    },
+    {
+      "id": "integration-en-claude-code",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Claude Code",
+      "source": "README.md:5",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-codex",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Codex",
+      "source": "README.md:5",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-cursor",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Cursor",
+      "source": "README.md:5",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-pi",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "pi",
+      "source": "README.md:5",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-deepseek-harness",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "DeepSeek Harness",
+      "source": "README.md:23",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-opencode",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "OpenCode",
+      "source": "README.md:24",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-gemini-cli",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Gemini CLI",
+      "source": "README.md:25",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-chatgpt",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "ChatGPT",
+      "source": "README.md:25",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-google-antigravity",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "Google Antigravity",
+      "source": "README.md:26",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-jsonl",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "JSONL",
+      "source": "README.md:19",
+      "kind": "integration",
+      "readme": "README.md"
+    },
+    {
+      "id": "integration-en-json",
+      "claim": "Tool, platform or runtime mentioned in the README",
+      "value": "JSON",
+      "source": "README.md:19",
+      "kind": "integration",
+      "readme": "README.md"
+    }
+  ],
+  "sourceRevisions": [
+    "758298eabb3639c227787afbe70e96d71f3c5628",
+    "e12ecf4c5bc484397a5c689ca9e2dfa4012ca9d0"
+  ]
+}
