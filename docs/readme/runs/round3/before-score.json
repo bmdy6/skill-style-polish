@@ -1,0 +1,27 @@
+{
+  "score": 36,
+  "draft_stats": {
+    "avg_sentence_len": 26.7,
+    "p90_sentence_len": 25,
+    "particles_per_100": 0.0,
+    "english_words_per_100cjk": 0.0,
+    "punct_per_100": {
+      "，": 4.94,
+      "。": 3.7,
+      "！": 0.0,
+      "？": 0.0,
+      "…": 0.0,
+      "~": 0.0,
+      ",": 0.0,
+      "!": 0.0,
+      "?": 0.0
+    },
+    "question_ratio": 0.0
+  },
+  "issues": [
+    "avg_sentence_len: 草稿 26.7 vs 档案 13.6",
+    "particles_per_100: 草稿 0.0 vs 档案 4.31",
+    "english_words_per_100cjk: 草稿 0.0 vs 档案 3.87",
+    "用了档案里从不用的标点 。"
+  ]
+}

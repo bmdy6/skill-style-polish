@@ -9,7 +9,7 @@
   <img src="docs/readme/hero-light.zh-CN.png" alt="原创中文草稿与 agent 润色后的结果" width="838">
 </picture>
 
-由 agent 用附带的示例档案生成，草稿与档案均为虚构示例。
+由 agent 用附带的示例档案生成；口吻匹配度 = 100 减去档案差异和禁用语扣分。
 
 ## 快速开始
 
@@ -58,7 +58,7 @@ gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish
 
 **已经完整测试了吗？** 已实跑示例润色并用 check.py 打分；分数只衡量文风统计，不代表改稿质量，未读取真实个人会话。
 
-**60/100 代表什么？** 它比较文风统计，这个纯中文示例的英文和语气词频率低于档案；不代表改稿质量。
+**36 → 80 是什么意思？** check.py 从 100 分扣除档案差异和禁用语扣分；这次润色仍因句长偏差扣了 20 分。
 
 <details><summary>隐私边界</summary>
 

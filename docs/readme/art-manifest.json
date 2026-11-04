@@ -9,17 +9,17 @@
       "language": "en",
       "kind": "real",
       "captureId": "core",
-      "sha256": "9d61482761d318265b7426868d94bd1c024b12aba53ee0de78be29c9566f7f92",
-      "bytes": 146332,
+      "sha256": "0a67c66383c73cb4f29a62bcf763d1cddf11bb037d9dfc7d45ff77991e90b7b8",
+      "bytes": 142748,
       "cssWidth": 900,
-      "cssHeight": 336.78125,
+      "cssHeight": 307.984375,
       "contentBounds": {
         "left": 28,
         "top": 40,
         "right": 872,
-        "bottom": 296.78125
+        "bottom": 267.984375
       },
-      "contentRatio": 0.7150153103832235,
+      "contentRatio": 0.6941867767011088,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
@@ -38,7 +38,7 @@
         "density": []
       },
       "width": 900,
-      "height": 336.78125
+      "height": 307.984375
     },
     {
       "file": "hero-dark.png",
@@ -47,17 +47,17 @@
       "language": "en",
       "kind": "real",
       "captureId": "core",
-      "sha256": "d1f848b6ea389f667a648feb9f90efdced978c5711d5281ecfd7d8aeac48c288",
-      "bytes": 149210,
+      "sha256": "8d87749f68bd3924100eb94c3415e3f540d164b0ba234ac58cd8555fbd14bb79",
+      "bytes": 146209,
       "cssWidth": 900,
-      "cssHeight": 336.78125,
+      "cssHeight": 307.984375,
       "contentBounds": {
         "left": 28,
         "top": 40,
         "right": 872,
-        "bottom": 296.78125
+        "bottom": 267.984375
       },
-      "contentRatio": 0.7150153103832235,
+      "contentRatio": 0.6941867767011088,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
@@ -76,7 +76,7 @@
         "density": []
       },
       "width": 900,
-      "height": 336.78125
+      "height": 307.984375
     },
     {
       "file": "hero-light.zh-CN.png",
@@ -85,17 +85,17 @@
       "language": "zh-CN",
       "kind": "real",
       "captureId": "core",
-      "sha256": "60ba4aa353c226790dd8967881c89bbe4cf5d4f95d4ef59f91333470e25943b5",
-      "bytes": 144732,
+      "sha256": "a4bf8057278e9789e2a5fe46cd3f592eb25264417c51d3cb0a00f1df29f76cf4",
+      "bytes": 140727,
       "cssWidth": 900,
-      "cssHeight": 336.78125,
+      "cssHeight": 307.984375,
       "contentBounds": {
         "left": 28,
         "top": 40,
         "right": 872,
-        "bottom": 296.78125
+        "bottom": 267.984375
       },
-      "contentRatio": 0.7150153103832235,
+      "contentRatio": 0.6941867767011088,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
@@ -114,7 +114,7 @@
         "density": []
       },
       "width": 900,
-      "height": 336.78125
+      "height": 307.984375
     },
     {
       "file": "hero-dark.zh-CN.png",
@@ -123,17 +123,17 @@
       "language": "zh-CN",
       "kind": "real",
       "captureId": "core",
-      "sha256": "0d60d059495d30c147836bbdd0cbf0625d7f7629ee94f689a091bb8b74d13820",
-      "bytes": 147659,
+      "sha256": "f522be1df8373190f7da07965c6fdbcfccc3a9882081d76d9f94109e542a2a45",
+      "bytes": 144125,
       "cssWidth": 900,
-      "cssHeight": 336.78125,
+      "cssHeight": 307.984375,
       "contentBounds": {
         "left": 28,
         "top": 40,
         "right": 872,
-        "bottom": 296.78125
+        "bottom": 267.984375
       },
-      "contentRatio": 0.7150153103832235,
+      "contentRatio": 0.6941867767011088,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
@@ -152,7 +152,7 @@
         "density": []
       },
       "width": 900,
-      "height": 336.78125
+      "height": 307.984375
     },
     {
       "file": "workflow-light.png",
