@@ -17,7 +17,7 @@
           "stderr": "Cloning into '.agents/skills/style-polish'...\n",
           "exitCode": 0,
           "signal": null,
-          "durationMs": 3011,
+          "durationMs": 4139,
           "timedOut": false,
           "requiresTTY": false,
           "environment": {
@@ -41,7 +41,7 @@
           "stderr": "Cloning into '.agents/skills/style-polish'...\n",
           "exitCode": 0,
           "signal": null,
-          "durationMs": 3258,
+          "durationMs": 3283,
           "timedOut": false,
           "requiresTTY": false,
           "environment": {
@@ -171,7 +171,7 @@
               },
               "install": {
                 "top": 500.828125,
-                "bottom": 572.234375,
+                "bottom": 552.53125,
                 "left": 16,
                 "right": 374
               }
