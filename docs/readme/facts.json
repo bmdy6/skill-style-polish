@@ -22,5 +22,12 @@
     "claim": "local pipeline",
     "value": "run(\"collect.py\", \"--out\", f\"{C}/raw.jsonl\")",
     "source": "scripts/run.py:21"
+  },
+  {
+    "id": "core-polish-step",
+    "kind": "feature",
+    "claim": "Polish a Chinese draft using the bundled style profile",
+    "value": "- 只理顺语句、修正错别字和语音识别错误，**不改变意思，不增删观点**。",
+    "source": "prompts/polish.md:4"
   }
 ]

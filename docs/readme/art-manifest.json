@@ -7,108 +7,152 @@
       "template": "hero-prompt",
       "theme": "light",
       "language": "en",
-      "kind": "fixture",
-      "captureId": "demo",
-      "sha256": "8a36a14ebcf036cbfb2108bc60742d14905920aa473d17e5dd15b3cbec9be338",
-      "bytes": 63350,
+      "kind": "real",
+      "captureId": "core",
+      "sha256": "9d61482761d318265b7426868d94bd1c024b12aba53ee0de78be29c9566f7f92",
+      "bytes": 146332,
       "cssWidth": 900,
-      "cssHeight": 307.5,
+      "cssHeight": 336.78125,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 296.78125
+      },
+      "contentRatio": 0.7150153103832235,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 307.5
+      "height": 336.78125
     },
     {
       "file": "hero-dark.png",
       "template": "hero-prompt",
       "theme": "dark",
       "language": "en",
-      "kind": "fixture",
-      "captureId": "demo",
-      "sha256": "78bb92084e5cdd5e6e848bfaf4d2bc6d6a535f957ef99ec2a115e3b3cb441c49",
-      "bytes": 63879,
+      "kind": "real",
+      "captureId": "core",
+      "sha256": "d1f848b6ea389f667a648feb9f90efdced978c5711d5281ecfd7d8aeac48c288",
+      "bytes": 149210,
       "cssWidth": 900,
-      "cssHeight": 307.5,
+      "cssHeight": 336.78125,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 296.78125
+      },
+      "contentRatio": 0.7150153103832235,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 307.5
+      "height": 336.78125
     },
     {
       "file": "hero-light.zh-CN.png",
       "template": "hero-prompt",
       "theme": "light",
       "language": "zh-CN",
-      "kind": "fixture",
-      "captureId": "demo",
-      "sha256": "1101570e33dfcb411259e7cbc324c858bebbb26cef6223b4f1cbd1cde5b3dae9",
-      "bytes": 70314,
+      "kind": "real",
+      "captureId": "core",
+      "sha256": "60ba4aa353c226790dd8967881c89bbe4cf5d4f95d4ef59f91333470e25943b5",
+      "bytes": 144732,
       "cssWidth": 900,
-      "cssHeight": 307.5,
+      "cssHeight": 336.78125,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 296.78125
+      },
+      "contentRatio": 0.7150153103832235,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 307.5
+      "height": 336.78125
     },
     {
       "file": "hero-dark.zh-CN.png",
       "template": "hero-prompt",
       "theme": "dark",
       "language": "zh-CN",
-      "kind": "fixture",
-      "captureId": "demo",
-      "sha256": "7451076d17668fc140349e8ab43ab006014d1b6a24520d4d9cbb0b1d5644010f",
-      "bytes": 70947,
+      "kind": "real",
+      "captureId": "core",
+      "sha256": "0d60d059495d30c147836bbdd0cbf0625d7f7629ee94f689a091bb8b74d13820",
+      "bytes": 147659,
       "cssWidth": 900,
-      "cssHeight": 307.5,
+      "cssHeight": 336.78125,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 296.78125
+      },
+      "contentRatio": 0.7150153103832235,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 307.5
+      "height": 336.78125
     },
     {
       "file": "workflow-light.png",
@@ -117,25 +161,36 @@
       "language": "en",
       "kind": "illustration",
       "captureId": null,
-      "sha256": "f94e99044a570acbece6b2f5de7beb2e2fa7857e5795bcaf645f0a5fcfd66543",
-      "bytes": 51426,
+      "sha256": "906e25035d10c646e79d85d34000bd9e2c35f595441436097c86bff0c51164dd",
+      "bytes": 51766,
       "cssWidth": 900,
-      "cssHeight": 270,
+      "cssHeight": 286,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 243.5
+      },
+      "contentRatio": 0.6672649572649573,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 270
+      "height": 286
     },
     {
       "file": "workflow-dark.png",
@@ -144,25 +199,36 @@
       "language": "en",
       "kind": "illustration",
       "captureId": null,
-      "sha256": "e2c2e8276151c694ed08b12b06143d315444dbb79d5ad2a0031abc3872cf8665",
-      "bytes": 52605,
+      "sha256": "51c73140595c3015d6396d76f186df98bcec796a6eadc4b32a06ae96bc4c7de1",
+      "bytes": 52980,
       "cssWidth": 900,
-      "cssHeight": 270,
+      "cssHeight": 286,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 243.5
+      },
+      "contentRatio": 0.6672649572649573,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 270
+      "height": 286
     },
     {
       "file": "workflow-light.zh-CN.png",
@@ -171,25 +237,36 @@
       "language": "zh-CN",
       "kind": "illustration",
       "captureId": null,
-      "sha256": "85fd2bace90d7cc7e79ac9ec20438fa752d0530ea3e34aaa170a5ad63def4ff9",
-      "bytes": 52039,
+      "sha256": "d76b246e3a81b6f876792acc25fd6ef7d9cff1beb86f584e5b80427a2413b7b9",
+      "bytes": 52468,
       "cssWidth": 900,
-      "cssHeight": 270,
+      "cssHeight": 286,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 243.5
+      },
+      "contentRatio": 0.6672649572649573,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 270
+      "height": 286
     },
     {
       "file": "workflow-dark.zh-CN.png",
@@ -198,25 +275,36 @@
       "language": "zh-CN",
       "kind": "illustration",
       "captureId": null,
-      "sha256": "a89fd00cbbc2b13f2dd102fe1693a3304b9589aa00d6b15b9118142838751a6a",
-      "bytes": 53401,
+      "sha256": "889813ad1153f3a60e5a35d9e5586e549b32a55c21ee3f3b465efa55fb74ef90",
+      "bytes": 53831,
       "cssWidth": 900,
-      "cssHeight": 270,
+      "cssHeight": 286,
+      "contentBounds": {
+        "left": 28,
+        "top": 40,
+        "right": 872,
+        "bottom": 243.5
+      },
+      "contentRatio": 0.6672649572649573,
       "checks": {
         "overflow": "pass",
         "fontSize": "pass",
         "contrast": "pass",
         "fields": "pass",
+        "mainText": "pass",
+        "density": "pass",
         "size": "pass"
       },
       "problems": {
         "overflow": [],
         "fontSize": [],
         "contrast": [],
-        "fields": []
+        "fields": [],
+        "mainText": [],
+        "density": []
       },
       "width": 900,
-      "height": 270
+      "height": 286
     }
   ]
 }

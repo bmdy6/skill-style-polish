@@ -2,8 +2,8 @@
   "projectType": "agent-skill",
   "audience": "Chinese writers",
   "oneLiner": {
-    "en": "Help Chinese writers polish drafts in their own voice with a local, privacy-filtered agent skill.",
-    "zh-CN": "用本地隐私过滤的智能体技能，帮助中文写作者按自己的口吻润色。"
+    "en": "Let AI polish drafts in your own voice.",
+    "zh-CN": "让 AI 用你自己的口吻润色文字。"
   },
   "keyTerms": [
     "style",
@@ -25,13 +25,40 @@
   "gates": {
     "G1": {
       "decidedBy": "agent",
-      "choice": "Local Chinese writing style",
-      "reason": "Noninteractive acceptance authorized by issue #1."
+      "originalTagline": "让 AI 用你自己的口吻润色文字：从你电脑上所有 AI agent 的聊天记录里学你怎么说话。",
+      "candidates": [
+        "让 AI 用你自己的口吻润色文字。",
+        "把草稿改顺，留下你自己的口吻。",
+        "从本地文风档案出发，润色你的中文草稿。"
+      ],
+      "adaptedFromOld": "让 AI 用你自己的口吻润色文字。",
+      "choice": "让 AI 用你自己的口吻润色文字。",
+      "reason": "Round 2 requires the project outcome and concrete output, with the useful original tagline preserved as a candidate."
     },
     "G2": {
       "decidedBy": "agent",
-      "choice": "Approved after screenshot inspection",
-      "reason": "Desktop light/dark show the entire command and hero; mobile recorded. Fixed dark code contrast before approval."
+      "choice": "Approved after round 2 core-output and baseline comparison review",
+      "reason": "Inspected actual input/output heroes at 900px, light/dark variants, desktop and mobile first screens; primary text and content bounds pass R4. Independent readers and randomized blind choice passed."
     }
+  },
+  "coreAction": {
+    "what": "Polish a Chinese draft using the bundled style profile",
+    "input": "Original Chinese page-editing request in inputs/draft.txt",
+    "agentStep": "Follow prompts/polish.md using examples/spoken.example.md, including its one low-score refinement.",
+    "output": {
+      "description": "A polished Chinese draft that preserves the original meaning",
+      "keywords": [
+        "draft",
+        "text",
+        "rewrite",
+        "polished",
+        "润色",
+        "草稿",
+        "文字"
+      ]
+    },
+    "factIds": [
+      "core-polish-step"
+    ]
   }
 }

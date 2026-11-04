@@ -5,19 +5,14 @@
       "id": "hero",
       "template": "hero-prompt",
       "title": {
-        "en": "A profile you can check",
-        "zh-CN": "可检查的本地文风档案"
+        "en": "Your voice, same meaning",
+        "zh-CN": "换顺句子，保留原意"
       },
       "subtitle": {
-        "en": "An actual leak check on the included synthetic profile.",
-        "zh-CN": "对仓库自带的合成示例档案，运行真实泄漏检查。"
+        "en": "An original Chinese draft, polished using the bundled synthetic profile.",
+        "zh-CN": "按附带的合成档案，润色原创中文草稿。"
       },
-      "prompt": {
-        "en": "Help me write in my own voice, with a local style profile.",
-        "zh-CN": "用本地文风档案，帮我按自己的口吻写作。"
-      },
-      "captureId": "demo",
-      "fixture": true
+      "captureId": "core"
     },
     {
       "id": "workflow",
@@ -27,8 +22,8 @@
         "zh-CN": "工作流程"
       },
       "subtitle": {
-        "en": "Help Chinese writers polish drafts in their own voice using a local style profile.",
-        "zh-CN": "用本地文风档案，帮助中文写作者按自己的口吻润色。"
+        "en": "Let AI polish drafts in your own voice.",
+        "zh-CN": "让 AI 用你自己的口吻润色文字。"
       },
       "illustration": true,
       "steps": [

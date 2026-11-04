@@ -1,15 +1,15 @@
 # style-polish
 
-用本地隐私过滤的智能体技能，帮助中文写作者按自己的口吻润色。
+让 AI 用你自己的口吻润色文字。
 
 [English](README.md) · [MIT](LICENSE)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/readme/hero-dark.zh-CN.png">
-  <img src="docs/readme/hero-light.zh-CN.png" alt="用户请求与真实命令输出" width="838">
+  <img src="docs/readme/hero-light.zh-CN.png" alt="原创中文草稿与 agent 润色后的结果" width="838">
 </picture>
 
-对合成示例档案的真实检查；流程图为示意。
+由 agent 用附带的示例档案生成，草稿与档案均为虚构示例。
 
 ## 快速开始
 
@@ -22,6 +22,8 @@ gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish
 > 先建立本地文风档案，再按我的口吻润色这段草稿。
 
 克隆需要已认证的 gh，运行需要 Python 3.9+ 和支持技能的智能体；脚本仅用标准库。
+
+兼容 **Claude Code**、**Codex**、**Cursor** 和 **pi**；其他适配器、会话格式和限制见[兼容说明](docs/compatibility.md)。
 
 ## 你会得到什么
 
@@ -52,9 +54,11 @@ gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish
 
 **中英文都能用吗？** 当前档案和检查更偏向中文，英文效果需要单独验证。
 
-**图里用的是真人数据吗？** 不是，图片展示的是仓库合成示例档案的真实泄漏检查。
+**图里用的是真人数据吗？** 不是，agent 按合成示例档案润色了原创虚构草稿。
 
-**已经完整测试了吗？** 已验证空白临时环境的流程和合成档案检查，未读取真实个人会话；仓库目前没有自动测试命令。
+**已经完整测试了吗？** 已实跑示例润色并用 check.py 打分；分数只衡量文风统计，不代表改稿质量，未读取真实个人会话。
+
+**60/100 代表什么？** 它比较文风统计，这个纯中文示例的英文和语气词频率低于档案；不代表改稿质量。
 
 <details><summary>隐私边界</summary>
 
