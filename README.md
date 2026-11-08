@@ -23,6 +23,18 @@ Then tell your agent:
 
 Requires authenticated gh access to clone, Python 3.9+, and a skill-capable agent; standard library only.
 
+For a local, automatic profile build (no agent review):
+
+```sh
+cd .agents/skills/style-polish
+python3 scripts/run.py --no-llm
+```
+
+The default `python3 scripts/run.py` may pause for agent review. With no usable
+messages it explains how to start and leaves existing profiles unchanged.
+Profiles are saved to `~/.style-polish/spoken.md`; the pipeline runs the leak gate.
+Local corpora stay in the ignored `corpus/` directory. Nothing is uploaded.
+
 Works with **Claude Code**, **Codex**, **Cursor**, and **pi**. More adapters, formats, and limitations are in [compatibility](docs/compatibility.md).
 
 ## What you get

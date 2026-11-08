@@ -23,6 +23,17 @@ gh repo clone bmdy6/skill-style-polish .agents/skills/style-polish
 
 克隆需要已认证的 gh，运行需要 Python 3.9+ 和支持技能的智能体；脚本仅用标准库。
 
+直接在本地自动建档（不经智能体审阅）：
+
+```sh
+cd .agents/skills/style-polish
+python3 scripts/run.py --no-llm
+```
+
+默认的 `python3 scripts/run.py` 可能暂停并要求智能体审阅。没有可用消息时，
+会提示如何开始，并保留已有档案。档案保存至 `~/.style-polish/spoken.md`，
+流程会自动运行泄漏闸门。本地语料保留在已忽略的 `corpus/` 目录，不上传。
+
 兼容 **Claude Code**、**Codex**、**Cursor** 和 **pi**；其他适配器、会话格式和限制见[兼容说明](docs/compatibility.md)。
 
 ## 你会得到什么
