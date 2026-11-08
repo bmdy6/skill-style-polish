@@ -1,7 +1,7 @@
 # Usage reference
 
-Python 3.9+, standard library only. Work in a local checkout of this private
-repository; cloning requires repository access. No package installation is needed.
+Python 3.9+, standard library only. Work in a local checkout of this public
+repository; the README clone command requires authenticated gh access. No package installation is needed.
 Read [SKILL.md](../SKILL.md) for the agent-led profile, polishing and edit-learning
 workflow, and [DESIGN.md](DESIGN.md) for implementation detail. The README example
 runs the pipeline; with an empty temporary home it has no personal messages to
@@ -19,8 +19,16 @@ patterns/entities, not a guarantee that no private information remains.
 
 The hero was generated from an actual check.py --leak-gate run against
 examples/spoken.example.md in a disposable copy. That profile is synthetic.
-No real personal conversation was read for this README. There is no project
-automated test command, so V8 is explicitly skipped in the delivery report.
+No real personal conversation was read for this README's illustration.
+
+Run all tests with `python3 -m unittest discover -s tests -v`. Tests use disposable
+homes and synthetic Claude Code/Codex sessions, exercise empty inputs and privacy
+filtering, generate a profile, and verify passing/failing leak gates. GitHub Actions
+runs this suite and the example leak gate on Python 3.9 and 3.13.
+
+When collection, denoising or filtering leaves zero usable messages, `run.py`
+prints a setup/filter hint and exits successfully without writing a profile.
+Existing profiles are preserved. This is a no-data outcome, not a completed build.
 
 To regenerate images use the readme-from-code skill's art command, targeting
 this repository and docs/readme/art.json. Capture inputs and source evidence are
