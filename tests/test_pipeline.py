@@ -90,6 +90,25 @@ class PipelineTests(unittest.TestCase):
         self.assertNotIn('synthetic@example.invalid', result.stdout + result.stderr)
         self.assertEqual(json.loads(result.stdout)['leak_gate'], 'fail')
 
+    def test_malformed_source_preserves_other_messages_and_finishes_pipeline(self):
+        seed(self.home)
+        path = self.home / '.claude/projects/synthetic/session.jsonl'
+        with path.open('a') as f:
+            f.write('null\n[]\n"synthetic-private-marker"\n{"type":"user","message":42}\n')
+        broken = self.home / '.deepseek/sessions/broken.json'
+        broken.parent.mkdir(parents=True)
+        broken.write_text('{synthetic-private-marker')
+        result = self.run_script('run.py', '--no-llm')
+        self.assertEqual(result.returncode, 0, result.stderr)
+        summary = json.loads(result.stdout.splitlines()[0].split('] ', 1)[1])
+        self.assertEqual(summary['messages_per_source']['claude'], 30)
+        self.assertEqual(summary['messages_per_source']['codex'], 30)
+        self.assertTrue(summary['warnings_per_source']['claude'])
+        self.assertTrue(summary['warnings_per_source']['deepseek'])
+        self.assertIn('样本 60 条消息', self.profile.read_text(encoding='utf-8'))
+        self.assertIn('leak gate passed', result.stdout)
+        self.assertNotIn('synthetic-private-marker', result.stdout + result.stderr)
+
 
 if __name__ == '__main__':
     unittest.main()

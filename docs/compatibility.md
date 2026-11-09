@@ -26,6 +26,13 @@
 | Google Antigravity | `~/.gemini/antigravity*/conversations/*.db` | ❌ 步骤是 protobuf 二进制，暂不支持 |
 | 其他 | 让 agent 自己找文件、补适配器 | fallback |
 
+### 采集异常与数据库读取
+
+- `collect.py` 与 `run.py` 的采集摘要包含 `warnings_per_source`。值按来源和原因计数，例如 `invalid_object`、`invalid_content`、`record_error:JSONDecodeError`、`file_error:OperationalError`；不输出源文件路径、异常原文或消息内容。同一条坏记录可能触发多项原因，不能把原因计数之和当作丢失消息数。非空表示结果不完整，需要检查对应来源；没有消息和读取失败可据此区分。
+- JSONL 语法坏行、非对象记录和错误的嵌套字段按记录跳过；无法读取的文件按文件隔离，已采集的正常消息与后续来源继续处理。Generic 保留 JSON/JSONL 数组递归支持。未知结构不会被当作 user 消息。
+- Cursor/OpenCode 使用 `mode=ro` 和单次读事务，读取包含已提交 WAL 的一致快照，读完关闭连接。不会执行写入或主动 checkpoint；SQLite 仍可能通过 `-shm` 协调读锁，所以不承诺 sidecar 字节不变化。不要将运行中的源库声明为 `immutable`，也不要通过复制主库文件来替代一致读取。参见 [SQLite WAL](https://www.sqlite.org/wal.html) 和 [URI 参数](https://www.sqlite.org/uri.html)。
+- 合成回归覆盖活跃 WAL、checkpoint 后、无 WAL、URI 特殊字符路径、缺失/损坏数据库、坏记录混合健康来源，以及完整建档和泄漏闸门。未用真实私有会话验证新增边界。
+
 
 ## 安装
 需要 Python 3.9+，只用标准库，不用装依赖。

@@ -75,6 +75,8 @@ python3 scripts/run.py --no-llm
 
 只处理有权使用的本人材料，过滤结果仍需审查；自动检查不能证明不存在所有隐私风险。
 
+遇到坏记录或无法读取的来源文件，采集会保留其他正常消息继续处理。摘要的 `warnings_per_source` 只列错误类型和数量，不打印源路径或消息原文；非空表示本次采集不完整。Cursor/OpenCode 数据库以只读方式读取，包括已提交的 WAL 内容，不主动要求 checkpoint。
+
 </details>
 
 ## 参与贡献
