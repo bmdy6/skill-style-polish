@@ -76,6 +76,8 @@ See the [usage reference](docs/reference.md).
 
 Process only your own authorized material and review filtering results. Automated checks cannot prove the absence of every privacy risk.
 
+Collection keeps healthy messages when a record or source file is malformed. The summary includes `warnings_per_source` with error types and counts, without source paths or message text; nonempty warnings mean collection was incomplete. Cursor/OpenCode databases are read-only, including committed WAL data, without requesting a checkpoint.
+
 </details>
 
 ## Contributing
