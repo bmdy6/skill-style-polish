@@ -21,7 +21,7 @@ Then tell your agent:
 
 > Build my local style profile, then polish this draft in my voice.
 
-Requires authenticated gh access to clone, Python 3.9+, and a skill-capable agent; standard library only.
+Requires gh to clone, Python 3.9+, and a skill-capable agent; standard library only.
 
 For a local, automatic profile build (no agent review):
 
@@ -70,7 +70,7 @@ See the [usage reference](docs/reference.md).
 
 **What was tested?** The core polish ran with the bundled example profile, then check.py scored it; this measures style habits, not editing quality. No real personal sessions were read.
 
-**What does 36 → 80 mean?** check.py starts at 100 and deducts profile-mismatch and banned-phrase penalties; the rewrite still loses 20 for sentence length.
+**What does 36 → 80 mean?** check.py starts at 100 and deducts profile-mismatch and banned-phrase penalties; the illustrated example loses 20 for sentence length.
 
 <details><summary>Privacy boundary</summary>
 
