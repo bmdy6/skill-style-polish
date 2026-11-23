@@ -1,3 +1,5 @@
+低维护：作为作品展示，Issue 可能不及时回复
+
 # style-polish
 
 Let AI polish drafts in your own voice.
